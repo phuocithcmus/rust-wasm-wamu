@@ -1,0 +1,23 @@
+[workspace]
+
+members = [
+    "crates/core",
+    "crates/cggmp",
+    "crates/wasm-wamu",
+]
+
+# Makes all `multi-party-ecdsa` dependencies resolve to our fork so that we get consistent types and API changes.
+[patch."https://github.com/webb-tools/multi-party-ecdsa"]
+multi-party-ecdsa = { git = "https://github.com/davidsemakula/multi-party-ecdsa", branch = "wamu" }
+
+# Makes all `fs-dkr` dependencies resolve to our fork so that we get consistent types and API changes.
+[patch."https://github.com/webb-tools/fs-dkr"]
+fs-dkr = { git = "https://github.com/davidsemakula/fs-dkr", branch = "wamu" }
+
+# Makes all `round-based` dependencies resolve to our fork so that we get this patch:
+# https://github.com/ZenGo-X/round-based-protocol/pull/10
+[patch.crates-io]
+round-based = { git = "https://github.com/davidsemakula/round-based-protocol" }
+
+[patch."https://github.com/webb-tools/round-based-protocol"]
+round-based = { git = "https://github.com/davidsemakula/round-based-protocol" }

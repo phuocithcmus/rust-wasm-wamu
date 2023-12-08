@@ -1,0 +1,56 @@
+[package]
+name = "wamu-cggmp"
+version = "0.1.0"
+edition = "2021"
+description = "A Rust implementation of CGGMP20 with augmentations as described by the Wamu protocol for computation of threshold signatures by multiple decentralized identities."
+license = "	GPL-3.0-or-later"
+authors = ["David Semakula <hello@davidsemakula.com>"]
+
+readme = "README.md"
+repository = "https://github.com/wamutech/wamu-rs"
+homepage = "https://wamu.tech/"
+keywords = ["threshold-signature", "mpc", "cggmp"]
+categories = ["cryptography"]
+
+[dependencies]
+wamu-core = { path = "../core", version = "0.1" }
+round-based = "0.1.7"
+curv-kzen = { version = "0.10.0", default-features = false, features = ["num-bigint"] }
+zeroize = "1.6.0"
+sha2 = "0.10.7"
+
+[dependencies.cggmp-threshold-ecdsa]
+git = "https://github.com/davidsemakula/cggmp-threshold-ecdsa"
+branch = "wamu"
+default-features = false
+version = "0.1.0"
+features = ["num-bigint"]
+
+[dependencies.multi-party-ecdsa]
+git = "https://github.com/davidsemakula/multi-party-ecdsa"
+branch = "wamu"
+version = "0.8.1"
+default-features = false
+
+[dependencies.fs-dkr]
+git = "https://github.com/davidsemakula/fs-dkr"
+branch = "wamu"
+version = "0.1.0"
+default-features = false
+
+[dev-dependencies]
+wamu-core = { path = "../core", version = "0.1", features = ["dev"] }
+round-based = { version = "0.1.7", features = ["dev"] }
+clap = { version = "4.3.17", features = ["derive"] }
+
+[features]
+default = []
+# Exposes utilities for testing.
+dev = []
+
+[package.metadata.docs.rs]
+all-features = true
+
+[[example]]
+name = "cli"
+required-features = ["dev"]

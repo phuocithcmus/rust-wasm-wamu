@@ -1,0 +1,30 @@
+[package]
+name = "wamu-core"
+version = "0.1.1"
+edition = "2021"
+description = "A Rust implementation of the core Wamu protocol for computation of threshold signatures by multiple decentralized identities."
+license = "MIT OR Apache-2.0"
+authors = ["David Semakula <hello@davidsemakula.com>"]
+
+readme = "README.md"
+repository = "https://github.com/wamutech/wamu-rs"
+homepage = "https://wamu.tech/"
+keywords = ["threshold-signature", "mpc"]
+categories = ["cryptography"]
+
+[dependencies]
+aes-gcm = "0.10.2"
+crypto-bigint = "0.5.2"
+hkdf = "0.12.3"
+k256 = "0.13.1"
+rand = "0.8.5"
+sha2 = "0.10.7"
+zeroize = { version = "1.6.0", features = ["alloc", "zeroize_derive"] }
+
+[features]
+default = []
+# Exposes utilities for testing.
+dev = []
+
+[package.metadata.docs.rs]
+all-features = true
