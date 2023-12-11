@@ -22,18 +22,18 @@ pub fn keygen(threshold: u16, n_parties: u16) -> String {
         .collect();
 
     // Adds parties to simulation.
-    for (idx, identity_provider) in identity_providers.iter().enumerate() {
-        v.push(
-            AugmentedKeyGen::new(
-                identity_provider,
-                &verifying_keys,
-                (idx + 1) as u16,
-                threshold,
-                n_parties,
-            )
-            .unwrap(),
-        )
-    }
+    // for (idx, identity_provider) in identity_providers.iter().enumerate() {
+    //     v.push(
+    //         AugmentedKeyGen::new(
+    //             identity_provider,
+    //             &verifying_keys,
+    //             (idx + 1) as u16,
+    //             threshold,
+    //             n_parties,
+    //         )
+    //         .unwrap(),
+    //     )
+    // }
     // Runs simulation and returns output.
     "a".to_string()
 }
